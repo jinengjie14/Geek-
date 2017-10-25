@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: kxwenda
+Implementation-Version: latest
+Built-By: Allen
+Implementation-Vendor-Id: com.openkx
+Build-Jdk: 1.8.0_151
+Implementation-URL: http://projects.spring.io/spring-boot/kxwenda/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

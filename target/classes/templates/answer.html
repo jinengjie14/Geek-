@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>主页 - 尚课学</title>
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link href="../static/css/material-icons.css" rel="stylesheet" th:href="@{/css/material-icons.css}">
+    <link href="../static/css/base.css" rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/sqq.css}">
+    <link rel="stylesheet" th:href="@{/css/layui.css}">
+  	<link rel="stylesheet" th:href="@{/css/icon/iconfont.css}">
+  </head>
+  <body>
+    <div class="header">
+      <div class="drawer_button"><i class="material-icons">menu</i></div>
+      <div class="layout_header-row">
+        <div class="logo">
+          <a href="index.html"><span class="icon-boNiLQhu6"></span>Geek社区</a>
+        </div>
+        <ul class="top-menu">
+          <li class="mitem">
+            <a class="mitema" href="javascript:void(0);" id="top-search"><i class="material-icons">search</i></a>
+            <div id="top-search-wrap">
+              <div class="tsw-inner">
+                <i id="top-search-close" class="material-icons">search</i>
+                <form><input type="text" name="keyword"></form>
+              </div>
+            </div>
+          </li>
+          <li class="mitem has-feedback hidden-xs">
+            <a class="mitema" id="notifications" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">notifications</i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg" aria-labelledby="notifications">
+              <div class="listview" id="notifications">
+                <div class="lv-header"> 消息提醒
+                  <a href="javascript:void(0);"><i class="material-icons">done_all</i></a>
+                </div>
+                <div class="lv-body"> </div>
+                <a class="lv-footer" href="javascript:void(0);">所有消息</a> 
+              </div>
+            </div>
+          </li>
+          <!-- <li class="mitem"><a class="mitema" href="javascript:void(0);"><i class="material-icons">comment</i></a></li> -->
+          <li class="mitem" th:if="${session?.user == null}"><a class="mitema" href="javascript:void(0);" th:href="@{/login}"><span>登录/注册</span></a></li><!-- 未登录 -->
+          <li class="mitem has-feedback" th:if="${session?.user != null}"><!--已登录-->
+            <a class="mitema" id="top-thisuse" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img th:src="@{/images/face13.png}" src="../static/images/user.jpg" alt="" class="header_userimg"/>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg" aria-labelledby="top-thisuse">
+              <div id="notifications" class="listview">
+                <div class="lv-header"> 个人信息 </div>
+                <div class="lv-body" style="min-height: initial;">
+                  <div class="myInfo">
+                    <div class="myphoto">
+                      <div class="userhead" data-type="update_avatar">
+                        <a href="#" style="display:block;"> 
+                          <img th:src="@{/images/face13.png}" src="../static/images/user.jpg" alt="image" width="96px;" height="96px;" /> 
+                          <span class="change-userhead">更改</span> 
+                        </a> 
+                      </div>
+                    </div>
+                    <div class="myshow">
+                      <div class="myname" th:text="${sessuser?.nickname ?: sessuser?.name}?:${sessuser?.account}">赵少锋</div>
+                      <div class="Email"  th:text="${sessuser?.email}?:'还未设置邮箱'">123456@qq.com</div>
+                      <div class="signature" th:text="${sessuser?.mood}">这是个性签名</div>
+                      <a th:href="@{/u/profile}" href="#" class="btn btn-primary">我的账户</a>
+                      <a th:href="@{/u/configs}" href="#" class="btn btn-default">设置</a>
+                    </div>
+                  </div>
+                </div>
+                <a th:href="@{/u/logout}" href="javascript:void(0);" class="lv-footer m-t-10 loginOut" id="JLogout">退出</a> 
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="layout_drawer main_drawer">
+      <div class="head visible-xs">
+        <span>WXINE</span>
+      </div>
+      <ul class="drawer-menu" name="drawer-menu">
+        <li><a href="#"><i class="material-icons">home</i>首页</a></li>
+        <li>
+          <a href="#"><i class="material-icons">school</i>开发工作人员</a>
+          <ul class="inmenu">
+            <li><a href="#">所有课程</a></li>
+            <li><a href="#">我的课程</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><i class="material-icons">description</i>标签</a>
+          <ul class="inmenu">
+            <li><a href="#">所有活动</a></li>
+            <li><a href="#">我的活动</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><i class="material-icons">photo</i>用户</a>
+          <ul class="inmenu">
+            <li class="on"><a href="#">相册</a></li>
+            <li><a href="#">分享</a></li>
+          </ul>
+        </li>
+        <hr>
+        <li class="on">
+          <a href="/" class="on"><i class="material-icons">account_circle</i>我的主页</a>
+          <ul class="inmenu" style="display: block;">
+            <li><a href="/u/profile">我的账户</a></li>
+            <li><a href="/u/friends">好友</a></li>
+            <li><a href="/u/configs">设置</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+<div class="layout_obfuscator"></div><!--左侧滑时的蒙板-->
+  <div class="main"style="padding-right: 100px;">
+    <div class="main layui-clear">
+  <div class="fly-panel" pad="20">
+    <h2 class="page-title" style="background-color: #03ab2b; color: #fff;">发表问题</h2>
+
+    <div class="layui-form layui-form-pane" >
+      <form action="/addquestion" method="post" enctype="multipart/form-data">
+        <div class="layui-form-item">
+          <label for="L_title" class="layui-form-label">标题</label>
+          <div class="layui-input-block">
+            <input type="text" id="L_title" name="title" required="" lay-verify="required" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+          <div class="layui-input-block">
+            <textarea id="L_content" name="content" required="" lay-verify="required" placeholder="请输入内容" class="layui-textarea fly-editor" style="height: 260px;"></textarea>
+          </div>
+          <label for="L_content" class="layui-form-label" style="top: -2px;">描述</label>
+        </div>
+              <div class="layui-form-item">
+          <div class="layui-inline">
+             <label class="layui-form-label" for="example-file-input">图片</label> 
+            
+			 <input type="file" id="example-file-input" name="file" style="margin-left: 20px;margin-top: 5px;">
+                
+            </div>
+          </div>
+        
+        <div class="layui-form-item">
+         <div class="layui-inline">
+            <label class="layui-form-label">所在类别</label>
+            <div class="layui-input-block">
+              <select lay-verify="required"  name="nav.id" style="height: 38px;width: 100px;text-indent: 10px;border-color: #e6e6e6;">
+                <option>请选择</option>
+                <option th:each="nav:${navs}" th:value="${nav?.id}" th:text="${nav?.name}">Java</option> 
+              </select>
+             
+            </div>
+          </div>
+         
+        </div>
+     
+        <div class="layui-form-item">
+          <button class="layui-btn" type="sumbit" style="    background-color: #00ac2c; color: #fff;">立即发布</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+	   
+
+  </div><!--main end-->
+
+    <div class="footer">
+      Copyright © 2017 openkx.com
+      <ul class="f-menu">
+          <li><a href="#">首页</a></li>
+          <li><a href="#">隐私权</a></li>
+          <li><a href="#">服务条款</a></li>
+          <li><a href="#">发送反馈</a></li>
+          <li><a href="#">常见问题</a></li>
+          <li><a href="#">帮助</a></li>
+          <li><a href="#">联系我们</a></li>
+       </ul>
+    </div>
+
+
+    <script src="../static/js/jquery-1.11.3.min.js" th:src="@{/js/jquery-1.11.3.min.js}"></script>
+    <script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" href="../static/js/messenger/css/messenger.css" th:href="@{/js/messenger/css/messenger.css}">
+    <link rel="stylesheet" href="../static/js/messenger/css/messenger-theme-flat.css" th:href="@{/js/messenger/css/messenger-theme-flat.css}">
+    <script src="../static/js/messenger/js/messenger.min.js" th:src="@{/js/messenger/js/messenger.min.js}"></script>
+    <script src="../static/js/messenger/js/messenger-theme-flat.js" th:src="@{/js/messenger/js/messenger-theme-flat.js}"></script>
+    <script src="../static/js/base.js" th:src="@{/js/base.js}"></script>
+    <script src="../static/js/layui.js" th:src="@{/js/layui.js}"></script>
+  </body>
+  
+</html>

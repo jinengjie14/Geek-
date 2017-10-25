@@ -1,0 +1,460 @@
+/*课程详情*/
+.card.blog-post{
+    background: #fff none repeat scroll 0 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+    position: relative;
+}
+.blog-post .bp-header {
+    position: relative;
+}
+.blog-post .pro-banner {
+    height: 160px;
+    position: relative;
+    z-index: 1;
+    background: url(../images/banner/banner5.jpg) center / cover;
+}
+.media_user{
+    margin: 80px 25px;
+}
+.blog-post .pro-banner .card-header .light-border img {
+    border: 2px solid #fff;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+.blog-post .pro-banner .card-header .banner-header small {
+    display: block;
+    margin-top: 8px;
+    color: #fff;
+    line-height: 160%;
+}
+.blog-post .pro-banner .card-header .banner-header {
+    padding: 5px 15px;
+}
+.blog-post .pro-banner .card-header .banner-header p {
+    font-size: 16px;
+    color: #fff;
+}
+.blog-post .m-button {
+    text-align: right;
+    margin-top: -35px;
+}
+.blog-post nav.ha-menu > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.blog-post nav.ha-menu > ul > li {
+    display: inline-block;
+    vertical-align: top;
+    padding: 15px 12px;
+        
+}
+.blog-post nav.ha-menu > ul > li a{
+    color: #333;
+    cursor: pointer;
+}
+.card{
+    background: #fff none repeat scroll 0 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+    position: relative;
+}
+.chapter-title {
+    background: #f7f7f7 none repeat scroll 0 0;
+    font-size: 14px;
+    font-weight: 700;
+    height: 45px;
+    line-height: 45px;
+    overflow: hidden;
+    padding: 0 80px 0 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+.chapter p {
+    color: #555;
+    padding: 22px 22px;
+    line-height: 24px;
+}
+.chapter ul li {
+    list-style: none;
+    padding: 5px 0;
+}
+.chapter ul li a{
+    color: #333;
+}
+.chapter div#jstree_demo2 {
+    margin-top: 15px;
+    padding-bottom: 3px;
+}
+.chapter-title .detailMenu ul.actions.right-menu {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    z-index: 2;
+    list-style: none;
+}
+.chapter-title .detailMenu ul.actions.right-menu i {
+    color: #777;
+    font-size: 20px;
+}
+.list .chapter div#jstree_demo2 i.material-icons{
+    vertical-align: bottom;
+}
+.c-button {
+    text-align: right;
+    padding: 21px 38px;
+}
+.header-inner li.active.waves-effect {
+    border-bottom: 2px solid #2196f3;
+}
+/*课程详情end*/
+
+
+
+.mt8 {
+    margin-top: -18px;
+}
+.etopl {
+    float: left;
+    color: #fff;
+}
+.formHeader {
+    border: medium none;
+    height: 140px;
+    margin: 30px 0 0;
+    overflow: hidden;
+    position: relative;
+}
+.formBody {
+    background-image: url("banner28.jpg") repeat-x 5px;
+    background-color: #fff;
+    height: auto;
+}
+.formBody {
+    min-height: 32px;
+    padding: 60px 20px 25px;
+    position: relative;
+}
+.formHeader .changePhoto {
+    background-color: rgba(0, 0, 0, 0.26);
+    border-radius: 50%;
+    bottom: 12px;
+    color: #fff;
+    height: 40px;
+    min-width: 40px;
+    overflow: hidden;
+    position: absolute;
+    right: 12px;
+    width: 40px;
+    border: none;
+    font-size: 20px;
+    text-align: center;
+    line-height: 10px;
+}
+.fg-float .fg-label {
+    -webkit-transition: all;
+    -o-transition: all;
+    transition: all;
+    -webkit-transition-duration: 200ms;
+    transition-duration: 200ms;
+    position: absolute;
+    top: 5px;
+    font-weight: 400;
+    color: #959595;
+    pointer-events: none;
+    z-index: 0;
+    left: 0;
+    white-space: nowrap;
+}
+.radio-event {
+    margin-top: 0 !important;
+    margin-left: 20px;
+}
+.input-group-addon {
+    padding: 6px 30px 6px 0;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1;
+    color: #000000;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0;
+    font-size: 18px;
+}
+.add-plate-name {
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.element select {
+    height: 28px;
+}
+.element {
+    display: inline-block;
+}
+.block-title {
+    display: inline-block;
+    margin: 0 0 10px;
+    font-size: 14px
+}
+.group-margin {
+    margin-top: 28px;
+}
+.formHeader img {
+    height: auto;
+    width: 100%;
+}
+.formHeader .tip, .pro-banner .tip {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    box-sizing: border-box;
+    color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    font-size: 22px;
+}
+.formHeader .tip i {
+    cursor: pointer;
+    margin-right: 10px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 5px;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+}
+.formHeader .tip span {
+    font-size: 18px;
+    transform: translateY(-3px);
+}
+.formBody .userFace img {
+    border-radius: 50%;
+    height: 96px;
+    left: 20px;
+    position: absolute;
+    top: -52px;
+    width: 96px;
+    border: 4px solid #fff;
+}
+/*红按钮*/
+.waves-effect {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.bgm-red {
+    background-color: #f44336 !important;
+}
+.btn-float {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 45px !important;
+}
+.secetionAdd {
+    position: fixed !important;
+    right: 15px;
+    bottom: 20px;
+    z-index: 21;
+}
+.btn[class*="bgm-"]:not(.bgm-white) {
+    color: #fff;
+}
+.btn-float:not(.m-btn) {
+    position: absolute !important;
+}
+.btn-float i {
+    font-size: 23px;
+    -webkit-transition: all;
+    -o-transition: all;
+    transition: all;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+.wi-100 {
+    width: 100%;
+}
+.cou-btn {
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px !important;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    border: 0 none;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 5px 10px;
+}
+.fos-20 {
+    font-size: 20px;
+}
+.po-in {
+    position: inherit !important;
+}
+.po-ab {
+    position: absolute !important;
+}
+.po-fi {
+    position: fixed !important;
+}
+.po-re {
+    position: relative !important;
+}
+.textWidth {
+    width: 100%;
+}
+.textSize {
+    font-size: 13px;
+    color: #959595;
+}
+.textProper {
+    resize: none;
+}
+.waves-effect {
+    color: #333;
+    font-size: 12px;
+}
+.wave-effect {
+    color: #333;
+    font-size: 12px;
+    background: #fff;
+}
+.dialog_photos {
+    line-height: 1;
+    color: #848484;
+}
+.dialog_photos i {
+    font-size: 18px;
+    vertical-align: middle;
+}
+.m-r-30 {
+    margin-right: 25px !important;
+}
+.m-r-10 {
+    margin-right: 10px !important;
+    font-size: 12px;
+}
+.m-r-5 {
+    display: inline;
+    margin: 0 18px;
+    padding-top: 2px;
+}
+.m-r-5 .mdl-checkbox__label {
+    font-size: 12px;
+}
+.text-right .mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.btnCancel {
+    color: #000;
+    background-color: #fff;
+    min-width: 0;
+}
+.text-right .mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.btnSub {
+    color: #fff;
+    background-color: #2196f3;
+    min-width: 0;
+}
+.basicBottom {
+    padding: 0 8px;
+    margin-top: -25px;
+    margin-bottom: -10px;
+}
+.basicBottom .selectList {
+    width: 60px !important;
+}
+.enlarge {
+    position: absolute;
+    right: 37px;
+    top: 135px;
+}
+.enlarge .material-icons {
+    font-size: 16px;
+    cursor: pointer;
+}
+.lesson_drawer{
+    height: calc(100% - 64px);
+    width: 185px;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    box-sizing: border-box;
+    transition-duration: .2s;
+    transform: translateX(-185px);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    border-right: 1px solid #e0e0e0;
+    background: #fff;
+    z-index: 97;
+}
+.lesson_drawer.is-visible {
+    transform: translateX(0);
+}
+.drawer-tips{
+    font-size: 12px;
+    color: #878787;
+    margin-left: 24px;
+    height: 20px;
+    line-height: 20px !important;
+}
+.lesson-title{
+    color: #000000;
+    font-size: 16px;
+    margin-top: 16px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0 12px;
+}
+@media(min-width: 768px){
+    .layout_drawer.main_drawer.m-drawer-show{transform: translateX(-185px);}
+    .layout_drawer.main_drawer.m-drawer-show.is-visible{transform: translateX(0);}
+}
+.lesson_drawer .drawer-menu li ul.inmenu {
+    padding: 0;
+    list-style: none;
+}
+.lesson_drawer .drawer-menu li ul.inmenu li a {
+    padding-left: 76px;
+    font-size: 13px;
+}
+.add-lesson{
+    width: 100%;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding: 6px 12px !important;
+}
+.add-lesson i{
+    vertical-align: inherit;
+    color: #878787;
+    font-size: 20px;
+    margin-right: 0 !important;
+    transform: translateY(0) !important;
+}
+.lesson-name{text-align: center;}
+.lesson-name a{
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 0 12px !important;
+}
+.lesson-name.on{color: #0096f4;}

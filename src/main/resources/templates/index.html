@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>主页 - 尚课学</title>
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link href="../static/css/material-icons.css" rel="stylesheet" th:href="@{/css/material-icons.css}">
+    <link href="../static/css/base.css" rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="stylesheet" th:href="@{/css/icon/iconfont.css}">
+  </head>
+  <body>
+    <div class="header">
+      <div class="drawer_button"><i class="material-icons">menu</i></div>
+      <div class="layout_header-row">
+        <div class="logo">
+          <a href="index.html"><span class="icon-boNiLQhu6"></span>Geek社区</a>
+        </div>
+        <ul class="top-menu">
+          <li class="mitem">
+            <a class="mitema" href="javascript:void(0);" id="top-search"><i class="material-icons">search</i></a>
+            <div id="top-search-wrap">
+              <div class="tsw-inner">
+                <i id="top-search-close" class="material-icons">search</i>
+                <form><input type="text" name="keyword"></form>
+              </div>
+            </div>
+          </li>
+          <li class="mitem has-feedback hidden-xs">
+            <a class="mitema" id="notifications" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">notifications</i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg" aria-labelledby="notifications">
+              <div class="listview" id="notifications">
+                <div class="lv-header"> 消息提醒
+                  <a href="javascript:void(0);"><i class="material-icons">done_all</i></a>
+                </div>
+                <div class="lv-body"> </div>
+                <a class="lv-footer" href="javascript:void(0);">所有消息</a> 
+              </div>
+            </div>
+          </li>
+          <li class="mitem" th:if="${session?.user == null}"><a class="mitema" href="javascript:void(0);" th:href="@{/login}"><span>登录/注册</span></a></li><!-- 未登录 -->
+          <li class="mitem has-feedback" th:if="${session?.user != null}"><!--已登录-->
+            <a class="mitema" id="top-thisuse" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img th:src="@{/images/face13.png}" alt="" class="header_userimg"/>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg" aria-labelledby="top-thisuse">
+              <div id="notifications" class="listview">
+                <div class="lv-header"> 个人信息 </div>
+                <div class="lv-body" style="min-height: initial;">
+                  <div class="myInfo">
+                    <div class="myphoto">
+                      <div class="userhead" data-type="update_avatar">
+                        <a href="#" style="display:block;"> 
+                          <img th:src="@{/images/face13.png}" alt="image" width="96px;" height="96px;" /> 
+                          <span class="change-userhead">更改</span> 
+                        </a> 
+                      </div>
+                    </div>
+                    <div class="myshow">
+                      <div class="myname" th:text="${sessuser?.nickname ?: sessuser?.name}?:${sessuser?.account}">赵少锋</div>
+                      <div class="Email"  th:text="${sessuser?.email}?:'还未设置邮箱'">123456@qq.com</div>
+                      <div class="signature" th:text="${sessuser?.mood}">这是个性签名</div>
+                      <a th:href="@{/u/profile}" href="#" class="btn btn-primary">我的账户</a>
+                      <a th:href="@{/u/configs}" href="#" class="btn btn-default">设置</a>
+                    </div>
+                  </div>
+                </div>
+                <a th:href="@{/u/logout}" href="javascript:void(0);" class="lv-footer m-t-10 loginOut" id="JLogout">退出</a> 
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="layout_drawer main_drawer">
+      <div class="head visible-xs">
+        <span>WXINE</span>
+      </div>
+      <ul class="drawer-menu" name="drawer-menu">
+        <li><a th:href="|/index|"><i class="material-icons">home</i>首页</a></li>
+        <li  th:each="nav:${nav}" >
+          <a th:href="|/navdetail/${nav?.id}|"  name="navid" th:value="${nav?.id}">
+          <i class="material-icons">school</i>[[${nav.name}]]</a>        
+        </li>
+        <hr>
+       
+      </ul>
+    </div>
+    <div class="layout_obfuscator"></div><!--左侧滑时的蒙板-->
+	
+    <div class="main">
+    <div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <p style="position: relative;height: 36px;line-height: 36px;padding: 0 20px;font-size: 20px;float: left;margin-top: 38px;">热门问题</p>
+        <div class="fly-tab fly-tab-index qukes" style="border-bottom: 1px solid #eff0f1;">
+          <span class="conte">  
+          <a class="newnav" href="index.html">有趣的</a>
+          <a href="index.html">373</a>
+          <a href="index.html">特色</a>
+          <a href="index.html">热</a>
+          <a href="index.html">周</a>
+          <a href="index.html">月</a>
+          <a href="index.html">我的帖</a>
+        </span>
+        <a  th:href="@{/add}" th:if="${session?.user != null}"><button class="quke" >发布问题</button></a>
+
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="question-summary narrow wash" id="question-summary-46393738"style="padding-top: 5px;" th:each="question:${question.items}">
+          <a href="init.html"><div class="cp">
+          <div class="votes">
+              <div class="mini-counts">
+                <span title="1票">
+                  <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">1</font>
+                  </font>
+                </span>
+              </div>
+              <div><font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">投票</font>
+              </font>
+            </div>
+          </div>
+          <div class="status answered">
+              <div class="mini-counts">
+                <span title="1答案"><font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">1</font>
+              </font>
+            </span>
+          </div>
+              <div><font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">回答</font>
+              </font>
+            </div>
+          </div>
+          <div class="views">
+              <div class="mini-counts">
+                <span title="16次点击">
+                  <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">16</font>
+                  </font>
+                </span>
+              </div>
+              <div><font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">意见</font>
+              </font>
+            </div>
+          </div>
+      </div></a>
+      <div class="summary">
+          <h3><a th:href="|/detail/${question?.id}|" class="question-hyperlink">
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">[[${question.title}]]</font>
+            </font></a></h3>
+          <div class="tags t-algorithm t-computer-science t-distributed-system t-consensus t-raft">
+              <a href="index.html" class="post-tag" title="" rel="tag">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">[[${question?.nav?.name}]]</font>
+                </font>
+              </a> 
+          </div>
+          <div class="started">
+              <a href="index.html" class="started-link">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">回答
+                  </font>
+                </font>
+                  <span title="2017-09-26 00：43：13Z" class="relativetime">
+                    <font style="vertical-align: inherit;">
+                      <font style="vertical-align: inherit;">15秒前</font>
+                    </font></span></a>
+              <a href="index.html">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">贾斯汀·比伯</font>
+                </font>
+              </a> 
+                <span class="reputation-score" title="信誉评分 " dir="ltr"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">6,081</font></font>
+                </span>
+          </div>
+      </div>
+    </div>
+  
+
+
+  
+    
+    <div class="page-conten"
+					style="background: #fdfdfd; padding: 1rem; margin: 3rem auto; border-radius: 0.2rem; counter-reset: pagination; text-align: center;">
+					<span class="page" th:each="page:${question?.pages}"> <a
+						th:href="@{/index (page=${page})}" class="page"
+						style="border: solid 1px #d6d6d6; border-radius: 0.2rem; color: #7d7d7d; text-decoration: none; text-transform: uppercase; display: inline-block; text-align: center; padding: 0.5rem 0.9rem;"><span
+							th:text="${page}"></span></a>
+					</span>
+				</div>
+
+    </div>
+
+    <div class="col-lg-4">
+      <dl class="foot">
+      <p class="oies">最近热帖子</p>
+      <dd class="did">
+      <a>使用 layui 秒搭后台大布局（基本结...
+        <i class="iconfont icon-browse_fill"><font class="passd">6098</font></i></a>
+      </dd>
+      <dd class="did">
+      <a>Java实现LayIM后端的核心代码
+        <i class="iconfont icon-browse_fill"><font class="passd">768</font></i></a>
+      </dd>
+      <dd class="did">
+      <a>使用 layui 秒搭后台大布局（基本结...
+        <i class="iconfont icon-browse_fill"><font class="passd">6098</font></i></a>
+      </dd>
+      <dd class="did">
+      <a>Java实现LayIM后端的核心代码
+        <i class="iconfont icon-browse_fill"><font class="passd">768</font></i></a>
+      </dd>
+
+      </dl>
+      
+      <dl>
+        <p class="oies">近期热议</p>
+        <dd class="did">
+        <a>使用 layui 秒搭后台大布局之基本结构
+          <i class="iconfont icon-gengduo"><font class="passd">768</font></i></a>
+        </dd>
+        <dd class="did">
+        <a>使用 layui 秒搭后台大布局之基本结构
+          <i class="iconfont icon-gengduo"><font class="passd">768</i></font></a>
+        </dd>
+        <dd class="did">
+        <a>使用 layui 秒搭后台大布局之基本结构
+          <i class="iconfont icon-gengduo"><font class="passd">768</i></font></a>
+        </dd>
+
+      </dl>
+
+      <dl>
+        <p class="oies">近期热议</p>
+        <dd class="did">
+        <a></a>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>
+    </div><!--main end-->
+
+    <div class="footer">
+      Copyright © 2017 openkx.com
+      <ul class="f-menu">
+          <li><a href="#">首页</a></li>
+          <li><a href="#">隐私权</a></li>
+          <li><a href="#">服务条款</a></li>
+          <li><a href="#">发送反馈</a></li>
+          <li><a href="#">常见问题</a></li>
+          <li><a href="#">帮助</a></li>
+          <li><a href="#">联系我们</a></li>
+       </ul>
+    </div>
+
+
+
+    <script  th:src="@{/js/jquery-1.11.3.min.js}"></script>
+    <script  th:src="@{/js/bootstrap.min.js}"></script>
+    <link    th:href="@{/js/messenger/css/messenger.css}">
+    <link    th:href="@{/js/messenger/css/messenger-theme-flat.css}">
+    <script  th:src="@{/js/messenger/js/messenger.min.js}"></script>
+    <script  th:src="@{/js/messenger/js/messenger-theme-flat.js}"></script>
+    <script  th:src="@{/js/base.js}"></script>
+  </body>
+  
+</html>
